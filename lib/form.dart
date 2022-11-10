@@ -21,6 +21,13 @@ class _MyFormPageState extends State<MyFormPage> {
     bool jenjangDoktor = false;
     bool _nilaiSwitch = false;
 
+    showJenjang() {
+        if (jenjangSarjana) {return Text('Jenjang: Sarjana');}
+        else if (jenjangDiploma) {return Text('Jenjang: Diploma');}
+        else if (jenjangMagister) {return Text('Jenjang: Magister');}
+        else {return Text('Jenjang: Doktor');}
+    }
+
     @override
     Widget build(BuildContext context) {
         return Scaffold(
@@ -240,6 +247,7 @@ class _MyFormPageState extends State<MyFormPage> {
                                                     child: Column(
                                                     children: [
                                                         Text('Judul: ' + _namaLengkap),
+                                                        showJenjang(),
                                                         Text('Umur: ' + '$umur'),
                                                         Text('Kelas: ' + kelasPBP),
                                                     ],
